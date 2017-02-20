@@ -1,0 +1,13 @@
+if(!msg.guild.channels.find('name', 'foo') {
+    msg.channel.sendMessage('Please create a channel by the name of \'foo\'');
+}
+
+well then i'll have it so the public version can be configured from any channel
+any as in
+like
+private moderator channels
+or something
+
+or you can make the command that configures the bot available for mods only
+
+wait you can have commands that only execute when the user has a specific role?
