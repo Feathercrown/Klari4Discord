@@ -41,12 +41,14 @@ bot.on('message', message => {
     var command = message.content.split(" ")[0];
     command = command.slice(config.prefix.length);
     if(!command) return message.channel.sendMessage(emptyreply());
-    /*outerbreak: {
+    outerbreak: {
         for(i = 0; i < fs.readdirSync('./shell_commands').length; i++) {
-            if(command == fs.readdirSync('./shell_commands')[i]) break outerbreak;
+            if(command+".js" == fs.readdirSync('./shell_commands')[i]) {
+                break outerbreak;
+            }
         }
-        return notmatching();
-    }*/
+        return message.channel.sendMessage(notmatching());
+    }
     var args = message.content.split(" ").slice(1);
     try {
         var commandFile = require(`./shell_commands/${command}.js`);
