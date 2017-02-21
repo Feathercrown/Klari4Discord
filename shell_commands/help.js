@@ -20,6 +20,6 @@ ${allfiles()}
         for ( var i = 0; i < a.length; i++ ) {
             a[i] = "  * " + a[i];
         }
-        return a.join("\n").replace(/.js/g,'');
+        return a.sort().join("\n").replace(/.js/g,'');
     }
 }
