@@ -21,6 +21,12 @@ exports.run = (bot, message, args) => {
                     case 'random':
                         return replies[Math.floor(Math.random()*replies.length)];
                         break;
+                    case 'last':
+                        return replies.pop();
+                        break;
+                    case 'first':
+                        return replies[0];
+                        break;
                     default:
                         return `*Uhh, I don't think I can do that. You'll have to try something else.*`;
                         break;

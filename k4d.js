@@ -41,7 +41,7 @@ bot.on('message', message => {
     var command = message.content.split(" ")[0];
     command = command.slice(config.prefix.length);
     if(!command) return message.channel.sendMessage(emptyreply());
-    if(fs.readdirSync('./shell_commands')) return message.channel.sendMessage(confused());
+    
     else {
 
     var args = message.content.split(" ").slice(1);
