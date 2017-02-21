@@ -41,16 +41,18 @@ bot.on('message', message => {
     var command = message.content.split(" ")[0];
     command = command.slice(config.prefix.length);
     if(!command) return message.channel.sendMessage(emptyreply());
-    
-    else {
-
-    var args = message.content.split(" ").slice(1);
-        try {
-            var commandFile = require(`./shell_commands/${command}.js`);
-            commandFile.run(bot, message, args);
-        } catch (err) {
-            console.error(err);
+    /*outerbreak: {
+        for(i = 0; i < fs.readdirSync('./shell_commands').length; i++) {
+            if(command == fs.readdirSync('./shell_commands')[i]) break outerbreak;
         }
+        return notmatching();
+    }*/
+    var args = message.content.split(" ").slice(1);
+    try {
+        var commandFile = require(`./shell_commands/${command}.js`);
+        commandFile.run(bot, message, args);
+    } catch (err) {
+        console.error(err);
     }
 
     function emptyreply(){
@@ -63,6 +65,17 @@ bot.on('message', message => {
             `*${message.author.username}, did you mean to type something?*`,
             `*How may I be of assistance, ${message.author.username}*?`,
             `*${message.author.username}, if you don't know what to type, I suggest entering 'kshell>help' to give you a few ideas. Happy Coding!*`
+        ];
+        return replies[Math.floor(Math.random()*replies.length)];
+    }
+    function notmatching(){
+        let replies = [
+            `*Excuse me?*`,
+            `*What?*`,
+            `*Uhh, I don't know that yet. You should suggest it in the 'klaribot-suggestions' channel if you have any ideas!*`,
+            `*Did you mean something else?*`,
+            `*I'm confused...*`,
+            `*Silly ${message.author.username}! You should go look at 'kshell>help'!*`,
         ];
         return replies[Math.floor(Math.random()*replies.length)];
     }
