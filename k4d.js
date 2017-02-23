@@ -2,7 +2,7 @@ console.log('');
 console.log('Loading Colors...');
 const Colors =  require('colors');
 
-console.log('Loading Settings...');
+console.log('Loading Settings.json...');
 const config = require('./settings.json')
 
 console.log('Loading Discord.js Core...');
