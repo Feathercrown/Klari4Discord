@@ -15,9 +15,10 @@
         "Just don't run it",
         "Reloads any command without restarting the node environment",
         "",
-        "Rolls any-sided die any amount of times",
+        "Rolls any-sided die any amount of times and can process basic data set operations on the fly",
         "",
-        "Sends a test command to the node environment"
+        "Shuts down the node environment",
+        "Sends a test command to the node environment and responds with a basic string pulled from an array"
         ];
 
     var Args = [
@@ -37,7 +38,8 @@
         "",
         "command-to-reload",
         "",
-        "dice-size amount-of-dice",
+        "dice-size amount-of-dice min|max|total|common|average",
+        "",
         "",
         "response-index-number|all|first|last|random"
         ];
@@ -51,7 +53,7 @@ Here's a brief tutorial on how to talk to me!
 
 - If ai.js hasn't been loaded yet (which especially won't be happening right after a startup), the only way for me to acknowledge your requests are by prefacing your commands with:
   
-  ${config.prefix}{Your command goes here!}
+  ${config.prefix}{Your command goes here! Without curly brackets, of course.}
 
 - When typing your command, DO NOT ADD A SPACE BETWEEN THE ARROW AND THE COMMAND, or else it just won't work! D:
 
@@ -64,7 +66,7 @@ ${allfiles()}
     function allfiles() {
         let a = fs.readdirSync('./shell_commands').toString().split(',')
         for ( var i = 0; i < a.length; i++ ) {
-            a[i] = "  * " + a[i] + " " + (Args[i]==""?"":"[") + Args[i].replace(" ","] [") + (Args[i]==""?"":"]") + "\n\t\t" + (descriptions[i]==""?"[New File Warning!]":descriptions[i]) + "\n";
+            a[i] = "  * " + a[i] + " " + (Args[i]==""?"":"[") + Args[i].replace(" ","] [") + (Args[i]==""?"":"]") + "\n\t\t" + (descriptions[i]==""?"[Error! No Description Detected!]":descriptions[i]) + "\n";
         }
         return a.sort().join("\n").replace(/.js/g,'');
     }

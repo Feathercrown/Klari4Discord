@@ -1,3 +1,4 @@
+const config = require('../settings.json')
 exports.run = (bot, message, args) => {
-    message.channel.sendMessage('k>ohno');
+    message.channel.sendMessage(config.prefix + 'ohno');
 }
