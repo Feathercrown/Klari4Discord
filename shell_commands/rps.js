@@ -1,3 +1,6 @@
 exports.run = (bot, message, args) => {
-    message.channel.sendMessage(`*This command is still being worked on. Think you can beat me at a game of Rock, Paper, Scissors?*`);
+    var bestOf=args.length==0?"":"Best of "+args[0];
+    message.channel.sendMessage(`*${bestOf} Rock, Paper, Scissors game started.
+Simply say Rock, Paper, or Scissors to start a new round.*`);
+    var rpsRound=1;
 }
