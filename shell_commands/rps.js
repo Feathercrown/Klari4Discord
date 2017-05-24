@@ -3,4 +3,5 @@ exports.run = (bot, message, args) => {
     message.channel.sendMessage(`*${bestOf} Rock, Paper, Scissors game started.
 Simply say Rock, Paper, or Scissors to start a new round.*`);
     var rpsRound=1;
+    mode="rps";
 }
